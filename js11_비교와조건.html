@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문</title>
+</head>
+<body>
+  <script>
+    // 변수 : 값(데이터)을 저장하는 공간
+    var 공간이름 = '값'
+    // 공간을 '처음' 생성할때는 var / let / const 를 앞에 적어준다
+    // 이미 만들어진 공간은 이름만 적어준다
+    공간이름
+
+    // 변수의 type
+    var 정수 = 3                // 숫자
+    var 실수 = 3.14             // 소수점있는 숫자
+    var 문자열 = "데이터값"     // 글자
+    var 불린 = true             // 참거짓 (true / false)
+    
+    // 조건 : 어떤 코드가 실행되게 할지 선택
+    // if(){}
+    if(true){
+      console.log("()안에 true가 들어가면 실행할 코드")
+    }
+
+    if(false){
+      console.log("이 부분은 무시가 됩니다")
+    }
+
+    // () 안에는 true 또는 false
+    // {} 안에는 true일때만 실행할 코드
+
+    console.log(10 > 3)             // true
+    console.log(10 < 3)             // false
+    console.log(30 >= 3)            // true
+    console.log(30 <= 3)            // false
+    console.log(30 == '30')         // == : 자료형 검사를 못하는 버그
+    console.log(30 === '30')        // 자료형까지 같은지 검사
+    console.log(30 !== '30')        // 자료형이 다르기때문에 다름
+
+    // 비교를 하면 결과가 true 또는 false
+    var 결과 = 0
+    if(결과 === 0){
+      console.log("결과는 0과 같습니다")
+    }
+    if(결과 !== 0){
+      console.log("결과는 0과 같지 않습니다")
+    }
+
+    function 큰값검사(num1, num2){
+      // return 을 만나면 함수는 그 즉시 종료됨
+      if(num1 > num2){
+        return "첫번째 숫자가 더 큽니다"
+      }
+
+      if(num2 > num1){
+        return "두번째 숫자가 더 큽니다"
+      }
+
+      if(num1 === num2){
+        return "두 수는 같습니다"
+      }
+    }
+
+    결과 = 큰값검사(6, 4)
+    console.log(결과)
+
+    결과 = 10
+    if(결과 > 5){
+      console.log("5보다 큽니다")
+    }else{
+      console.log("5보다 크지않습니다")
+    }
+    // else : 그 외에 것들은
+
+    // 반대의 경우 ==> else
+    // if(결과 <= 5){
+    //   console.log("5보다 크지않습니다")
+    // }
+
+    // 성인인지 판독하는 함수
+    // 성인이면 ==> 성인 입니다
+    // 성인이 아니면 ==> 미성년자 입니다
+      var 나이 = 10
+      function 성인인가요(나이){
+        if(나이 >= 19){
+          return "성인 입니다"
+        }else{
+          return "미성년자 입니다"
+        }
+      }
+      
+      결과 = 성인인가요(나이)
+      console.log(결과)
+
+      // if안에 if : 바깥의 if가 true일때만 안에있는 if를 검사
+      if(false){
+        console.log("if 1번째")
+        if(true){
+          console.log("if 2번째")
+        }
+      }
+
+      // 우리마을버스요금
+      // 5세 미만이면 0원
+      // 5세이상 ~ 14세미만 500원
+      // 14세이상 ~ 20세미만 750원
+      // 20세이상 ~ 75세미만 1000원
+      // 75세이상 이면 0원
+      나이 = 30
+      var 요금 = 0
+      if(나이 < 75){
+        if(나이 >= 20){
+          요금 = 1000
+        }else{
+          if(나이 >= 14){
+            요금 = 750
+          }else{
+            if(나이 >= 5){
+              요금 = 500
+            }else{
+              // 5세 미만
+              요금 = 0
+            }
+          }
+        }
+      }else{
+        요금 = 0
+      }
+
+      // if : 조건 검사
+      // else if : 위에 조건이 틀렸을 때
+      // else : 해당 되는 조건이 없을 때
+      나이 = 78
+      if(나이 > 75){
+        요금 = 0
+      }
+      else if(나이 >= 20){
+        요금 = 1000
+      }
+      else if(나이 >= 14){
+        요금 = 750
+      }
+      else if(나이 >= 5){
+        요금 = 500
+      }
+      else{
+        요금 = 0
+      }
+      console.log(요금)
+
+      // 놀이기구탑승검사
+      // 키가 130미만 => 탑승불가
+      // 키가 130~190 => 탑승가능
+      // 키가 190초과 => 탑승불가
+      내키 = 190
+      function 놀이기구탑승검사(키){
+        if(키 > 190){
+          return "탑승불가"
+        }else if(키 < 130){
+          return "탑승불가"
+        }else if(키 >= 130 && 키 <= 190){   // && 그리고 : 앞에도 맞고 뒤에도 맞을때 true
+          return "탑승불가"
+        }
+      }
+      결과 = 놀이기구탑승검사(내키)
+      console.log(결과)
+
+      
+      function 글자수가_3이상이고_10미만인지_검사(글자){
+        let 글자수 = 글자.length        // let : 중괄호나 () 안에서 변수를 만들때
+        // 글자수가 3이상이고 10미만인지 검사
+        if(글자수 >= 3 && 글자수 < 10)      // && : 둘다 맞는지 검사하고 싶을 때
+        {
+          return "맞습니다"
+        }else{
+          return "적절하지 않은 글자수 입니다"
+        }
+      }
+
+      결과 = 글자수가_3이상이고_10미만인지_검사("안녕하세요")
+      console.log(결과)
+
+      function 또는(숫자){
+        // 숫자가 3 또는 10인지 검사
+        // || (쉬프트 + 역슬래시 \) 엔터위에
+        if(숫자 === 3 || 숫자 === 10){
+          return true
+        }else{
+          return false
+        }
+      }
+
+      결과 = 또는(9)
+      console.log(결과)
+      
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문</title>
+  <style>
+    body{
+      margin:0
+    }
+
+    .top-nav{
+      width:100%;
+      display:flex;
+      justify-content: space-between;
+      padding:0 30px;     /*위아래 0, 왼쪽오른쪽 30*/
+      background:lightgrey;
+    }
+
+    .top-nav li{
+      display:inline-block;
+      padding:15px;
+    }
+
+    .down-nav{
+      background:black;
+      color:white;
+      display:flex;
+      z-index:5;
+      height:0;
+      visibility: hidden;
+    }
+
+    .down-nav h3{
+      margin-top:0;
+    }
+    .down-nav div{
+      padding:10px 30px;    /*위아래 10px, 왼쪽오른쪽 30px */
+    }
+
+    .down-nav ul{
+      padding-left:0;
+    }
+
+    .down-nav li{
+      list-style: none;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- 
+    배경색 : lightgrey
+    로고는 왼쪽에, 리스트는 오른쪽에 1열로
+    padding
+  -->
+  <!-- 네비게이션 : 로고 -->
+  <div class="top-nav">
+    <h2 id="top-logo">로고</h2>
+    <ul>
+      <li>커피</li>
+      <li>라떼</li>
+      <li>주스</li>
+      <li>티</li>
+    </ul>
+  </div>
+  <div class="down-nav" id="down-nav">
+    <div>
+      <h3>커피</h3>
+      <ul>
+        <li>아메리카노</li>
+        <li>콜드브루</li>
+      </ul>
+    </div>
+    <div>
+      <h3>라떼</h3>
+      <ul>
+        <li>카페라떼</li>
+        <li>콜드브루라떼</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    var down_nav_flag = 0     // 변수
+    document.getElementById('top-logo').addEventListener('click',function(){
+      if(down_nav_flag === 0){
+        down_nav_flag = 1
+        document.getElementById('down-nav').style.height = 'auto'
+        document.getElementById('down-nav').style.visibility = 'visible'
+      }else if(down_nav_flag === 1){
+        down_nav_flag = 0
+        document.getElementById('down-nav').style.height = '0'
+        document.getElementById('down-nav').style.visibility = 'hidden'
+      }
+    })
+  </script>
+</body>
+</html>
