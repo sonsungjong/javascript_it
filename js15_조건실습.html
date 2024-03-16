@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다크 모드</title>
+  <style>
+    body{
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .top-nav
+    {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+    }
+
+    .mode-btn{
+      padding: 0 15px;
+
+      font-size:20px;
+    }
+
+    .back-white
+    {
+      background:white;
+      color:black;
+    }
+
+    .back-black
+    {
+      background:black;
+      color:white;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div id="top" class="top-nav back-white">
+    <h3>JavaScript</h3>
+    <button id="mode-btn" class="mode-btn back-black">다크 모드</button>
+  </div>
+  <div id="bottom" class="main-box back-white">
+    <p>올해 년도는?</p>
+    <input type="text" id="submit-text">
+    <button class="back-white" id="submit-btn">제출</button>
+  </div>
+
+  <script>
+    var 모드 = 0
+    document.getElementById('mode-btn').addEventListener('click', function(){
+      모드++        // ++ : 들어있는 값을 1 증가시켜라
+      // 모드가 짝수면 라이트모드, 홀수면 다크모드
+      if(모드 % 2 == 0)       // 짝수
+      {
+        document.getElementById('top').classList.remove('back-black')
+        document.getElementById('top').classList.add('back-white')
+        document.getElementById('bottom').classList.remove('back-black')
+        document.getElementById('bottom').classList.add('back-white')
+        document.getElementById('mode-btn').classList.remove('back-white')
+        document.getElementById('mode-btn').classList.add('back-black')
+        document.getElementById('mode-btn').innerHTML = '다크 모드'
+        //alert("다크 모드 적용")
+      }
+      else            // 홀수
+      {
+        // back-white를 떼고 back-black을 추가시켜라 (단, 다크모드 버튼은 반대로)
+        document.getElementById('top').classList.remove('back-white')
+        document.getElementById('top').classList.add('back-black')
+        document.getElementById('bottom').classList.remove('back-white')
+        document.getElementById('bottom').classList.add('back-black')
+        document.getElementById('mode-btn').classList.remove('back-black')
+        document.getElementById('mode-btn').classList.add('back-white')
+        document.getElementById('mode-btn').innerHTML = '라이트 모드'
+        //alert("라이트 모드 적용")
+      }
+    })
+
+    // input의 내용이 2024 와 같았다면 alert("정답입니다")
+    // input의 내용이 2024 와 같지않았다면 alert("오답입니다")
+    // 제출버튼을 누르면
+    document.getElementById('submit-btn').addEventListener('click', function() {
+      // 입력값 가져오기
+      var 입력값 = document.getElementById('submit-text').value;
+      // 입력값이 2024인지 확인
+      if (입력값 === '2024') {
+        alert("정답입니다");
+      } else {
+        alert("오답입니다");
+      }
+    });
+    
+  </script>
+</body>
+</html>
