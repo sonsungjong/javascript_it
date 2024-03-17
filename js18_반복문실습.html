@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>탭기능 만들기</title>
+  <style>
+    .tab-container{
+      width:400px;
+      height:300px;
+    }
+
+    .tab-container ul{
+      font-size:0;
+      padding:0;
+    }
+
+    .tab-container li{
+      font-size:16px;
+      display:inline-block;
+      padding:10px 30px;
+      border-bottom: 1px solid lightgrey;
+    }
+
+    .tab-selected
+    {
+      border: 1px solid lightgrey;
+      border-top:2px solid orange;
+      border-bottom: 0 !important;
+    }
+
+    .display-none{
+      display:none;
+    }
+
+    .tab_button{
+
+    }
+
+    .tab_content{
+    }
+  </style>
+</head>
+<body>
+  <div class="tab-container">
+    <ul>
+      <li class="tab_button tab-selected">탭1</li>
+      <li class="tab_button">탭2</li>
+      <li class="tab_button">탭3</li>
+    </ul>
+
+    <div class="tab_content">
+      탭1 내용
+    </div>
+    <div class="tab_content display-none">
+      탭2 내용
+    </div>
+    <div class="tab_content display-none">
+      탭3 내용
+    </div>
+  </div>
+
+  <script>
+    var 탭버튼갯수 = document.querySelectorAll('.tab_button').length
+    var 탭내용갯수 = document.querySelectorAll('.tab_content').length
+    
+    for(let 순서= 0; 순서 < 탭버튼갯수; 순서++){
+      document.querySelectorAll('.tab_button')[순서].addEventListener('click',function(){
+        for(let i=0; i<탭버튼갯수;i++){
+          document.querySelectorAll('.tab_content')[i].classList.add('display-none')
+          document.querySelectorAll('.tab_button')[i].classList.remove('tab-selected')
+        }
+        document.querySelectorAll('.tab_content')[순서].classList.remove('display-none')
+        document.querySelectorAll('.tab_button')[순서].classList.add('tab-selected')
+      })
+    }
+
+  </script>
+</body>
+</html>
