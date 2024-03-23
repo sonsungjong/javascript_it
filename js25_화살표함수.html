@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="temp">버튼이름</button>
+  <script>
+    function 함수의이름(){}
+    function 함수이름2(그때그때변경할값){}            // 매개변수 1개
+    function 함수이름3(){return '끝낼때알려주고싶은값'}
+    var 변수 = function(){}         // 일회성함수
+    var 변수2 = ()=>{}              // ArrowFunction
+
+    var 변수3 = e=>{}       // 매개변수 1개면 () 생략가능
+    var 변수4 = (a, b) => {}
+    var 변수5 = (a, b) => a + b         // return a+b
+
+    // 이름이 없는 함수 : 즉시 사용
+    // document.getElementById('temp').addEventListener(('click'),function(){
+    //   alert('temp')
+    // })
+
+    // document.getElementById('temp').addEventListener('click',()=>{
+    //   alert('temp')
+    // })
+
+    // document.getElementById('temp').addEventListener('click', function(매개변수){
+    //   console.log(매개변수.target)
+    // })
+
+    document.getElementById('temp').addEventListener('click', (e)=>{
+      console.log(e.target)
+      e.target.style.background = 'yellowgreen'
+    })
+
+  </script>
+</body>
+</html>
