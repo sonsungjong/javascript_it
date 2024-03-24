@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax 실습</title>
+</head>
+<body>
+  <button id="get-btn">get요청</button>
+  <button id="post-btn">post요청</button>
+  <button id="clear-btn">지우기</button>
+  <div id="box"></div>
+
+  <script>
+    // get-btn을 누르면 get요청을 한 결과를 insertAdjacentHTML
+    document.getElementById('get-btn').addEventListener('click', ()=>{
+      // 버튼을 누르면 get요청
+      fetch('https://httpbin.org/get')
+      .then(res => res.json())
+      .then(data =>{
+        var 응답값 = `
+          <p>${JSON.stringify(data)}</p>
+          <h1>${data['url']}</h1>
+          <hr>
+        `
+        document.getElementById('box').insertAdjacentHTML('beforeend', 응답값)
+      })
+    })
+    // post-btn을 누르면 post요청을 한 결과를 insertAdjacentHTML
+    document.getElementById('post-btn').addEventListener('click', ()=>{
+      fetch('https://httpbin.org/post', {
+        method:'POST',
+        headers:{
+          'CONTENT-TYPE':'application/json'
+        },
+        body:JSON.stringify(
+          //'':''
+        )
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        var 응답값 = `
+          <p>${JSON.stringify(data)}</p>
+          <h1>${data['url']}</h1>
+          <hr>
+        `
+        document.getElementById('box').insertAdjacentHTML('beforeend', 응답값)
+      })
+    })
+
+    // clear-btn을 누르면 innerHTML = '' 로 이력 삭제
+    document.getElementById('clear-btn').addEventListener('click', ()=>{
+      document.getElementById('box').innerHTML = ''
+
+    })
+
+
+    // 변수의 스코프
+    // {} 안에서 만들어진 변수는 {}가 끝나면 삭제됨 : 지역변수
+    // 함수안에서 변수를 만들면 함수가 끝나면 그 변수는 삭제됨 : 지역변수
+    // {} 밖에서 만들어진 변수는 모든 곳에서 사용이 가능 : 전역변수
+
+  </script>
+</body>
+</html>

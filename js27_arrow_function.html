@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .select-tag{
+
+    }
+
+    .display-none{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <select class="select-tag">
+      <option>커피</option>
+      <option>주스</option>
+      <option>차</option>
+    </select>
+
+    <select class="select-tag display-none">
+      <option>1잔</option>
+      <option>2잔</option>
+      <option>3잔</option>
+    </select>
+  </form>
+
+  <script>
+    // 하나의 클래스명을 여러군데 사용하면
+    // querySelectorAll 을 통해서 배열로 찾기
+    // [0], [1], [2]
+    document.querySelectorAll('.select-tag')[0].addEventListener('input', (e)=>{
+      // 이벤트 준 타겟 document.querySelectorAll('.select-tag')[0]
+      // value : 입력되어있는 값
+      if(e.target.value == '주스'){
+        //alert(e.target.value)
+        // 두번째 있는 select-tag의 display-none클래스를 제거
+        document.querySelectorAll('.select-tag')[1].classList.remove('display-none')
+      }else{
+        //alert(e.target.value)
+        // 두번째 있는 select-tag의 display-none클래스를 추가
+        document.querySelectorAll('.select-tag')[1].classList.add('display-none')
+      }
+    })
+
+    var 변수 = function(){}
+    변수 = ()=>{}
+
+    변수 = function(매개변수){}
+    변수 = (매개변수)=>{}
+
+    변수 = function(){return true}
+    변수 = ()=>{true}         // 한줄만 적으면 return 효과
+
+    변수 = function(a, b){
+      let sum = a+b
+      return sum
+    }
+    변수 = (a,b)=>{
+      let sum = a+b
+      return sum
+    }
+
+  </script>
+</body>
+</html>
