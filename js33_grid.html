@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin:0;
+    }
+    div, input, textarea{
+      box-sizing: border-box;
+    }
+
+    .grid-container{
+      display: grid;
+      width:300px;
+      height:300px;
+      grid-template-areas: 
+      "위쪽 위쪽 위쪽"
+      "왼쪽 안쪽 안쪽"
+      "왼쪽 안쪽 안쪽"
+      ;
+    }
+
+    .grid-container div{
+      border: 2px solid yellowgreen;
+    }
+
+    .first{
+      grid-area:위쪽;
+    }
+
+    .second{
+      grid-area:왼쪽;
+    }
+
+    .third{
+      grid-area:안쪽;
+    }
+
+    .grid-layout{
+      display:grid;
+      width:300px;
+      height:300px;
+      grid-template-areas: 
+      "photo1 photo1 photo2"
+      "photo1 photo1 photo3"
+      "photo4 photo5 photo6"
+      ;
+    }
+
+    .photo-1{
+      grid-area: photo1;
+    }
+
+    .photo-2{
+      grid-area: photo2;
+    }
+
+    .photo-3{
+      grid-area: photo3;
+    }
+
+    .photo-4{
+      grid-area: photo4;
+    }
+
+    .photo-5{
+      grid-area: photo5;
+    }
+
+    .photo-6{
+      grid-area: photo6;
+    }
+
+    @media screen and (max-width:768px){
+      .grid-container{
+        grid-template-areas: 
+        "위쪽"
+        "왼쪽"
+        "안쪽"
+        ;
+      }
+
+      .grid-layout{
+        width:100px;
+        height:600px;
+        grid-template-areas: 
+        "photo1"
+        "photo2"
+        "photo3"
+        "photo4"
+        "photo5"
+        "photo6"
+        ;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="inner first">1</div>
+    <div class="inner second">2</div>
+    <div class="inner third">3</div>
+  </div>
+
+  <br>
+  <hr>
+  <br>
+
+  <div class="grid-layout">
+    <div class="photo-1"><img src="https://picsum.photos/500?r=0" alt="" width="100%" height="100%"></div>
+    <div class="photo-2"><img src="https://picsum.photos/500?r=1" alt="" width="100%" height="100%"></div>
+    <div class="photo-3"><img src="https://picsum.photos/500?r=2" alt="" width="100%" height="100%"></div>
+    <div class="photo-4"><img src="https://picsum.photos/500?r=3" alt="" width="100%" height="100%"></div>
+    <div class="photo-5"><img src="https://picsum.photos/500?r=4" alt="" width="100%" height="100%"></div>
+    <div class="photo-6"><img src="https://picsum.photos/500?r=5" alt="" width="100%" height="100%"></div>
+  </div>
+
+</body>
+</html>
