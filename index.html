@@ -26,13 +26,13 @@
           </div>
           <div class="second-nav">
             <ul>
-              <li><a href="#">COFFEE</a></li>
-              <li><a href="#">MENU</a></li>
-              <li><a href="#">STORE</a></li>
-              <li><a href="#">RESPONSIBILITY</a></li>
-              <li><a href="#">STARBUCKS REWARDS</a></li>
-              <li><a href="#">CORPORATE SALES</a></li>
-              <li><a href="#">WHAT'S NEW</a></li>
+              <li class="down-show"><a href="#">COFFEE</a></li>
+              <li class="down-show"><a href="#">MENU</a></li>
+              <li class="down-show"><a href="#">STORE</a></li>
+              <li class="down-show"><a href="#">RESPONSIBILITY</a></li>
+              <li class="down-show"><a href="#">STARBUCKS REWARDS</a></li>
+              <li class="down-show"><a href="#">CORPORATE SALES</a></li>
+              <li class="down-show"><a href="#">WHAT'S NEW</a></li>
             </ul>
           </div>
         </div>
@@ -75,7 +75,25 @@
     <img src="./img/item4.png" alt="" class="product2">
     <img src="./img/item5.png" alt="" class="product3">
   </div>
-  <div class="section-2"></div>
+  <div class="section-2">
+    <div class="back-black">
+      <h3>공지사항</h3>
+      <ul>
+        <li>개인정보처리방침</li>
+        <li class="display-none">이용약관</li>
+        <li class="display-none">점검 안내</li>
+      </ul>
+      <div class="back-black-icon">
+        <i class="fa-solid fa-plus"></i>
+      </div>
+    </div>
+    <div class="back-white">
+      <p>스타벅스 프로모션</p>
+      <div class="back-white-icon">
+        <i class="fa-solid fa-angle-down"></i>
+      </div>
+    </div>
+  </div>
   <div class="section-3"></div>
   <div class="section-4"></div>
   <div class="section-5"></div>
@@ -86,6 +104,50 @@
   <footer>
 
   </footer>
+
+  <script>
+    var a_flag = [false, false, false, false, false, false, false]
+    var down_flag = false;
+
+    document.querySelectorAll('.down-show')[0].addEventListener('mouseenter', (e)=>{
+      // 마우스가 들어갔을 때 down-nav 의 높이를 변경하고, visible로 변경
+      a_flag[0] = true;
+    })
+
+    document.querySelectorAll('.down-show')[0].addEventListener('mouseleave', (e)=>{
+      // 마우스가 나갔을 때 down-nav 의 높이를 원래대로, hidden 으로
+
+    })
+
+    document.querySelector('.top-nav-inner').addEventListener('mouseover', ()=>{
+      a_flag[0] = false;
+    })
+
+    document.querySelector('.down-nav').addEventListener('mouseleave', (e)=>{
+      down_flag = true;
+      a_flag[0] = false;
+    })
+
+    document.querySelector('.down-nav').addEventListener('mouseleave', (e)=>{
+      down_flag = false;
+    })
+
+    // 50ms 로 변수값을 체크를 해서 true면 down-nav를 보이게, false면 안보이게
+    // 50ms마다 동작
+    setInterval(function(){
+      if(a_flag[0] == false && down_flag == false){
+        // 안보이게
+        document.querySelector('.down-nav').classList.remove('down-nav-show')
+      document.querySelectorAll('.second-nav a')[0].classList.remove('second-nav-show')
+      }else{
+        // 보이게
+        document.querySelector('.down-nav').classList.add('down-nav-show')
+      document.querySelectorAll('.second-nav a')[0].classList.add('second-nav-show')
+      }
+    }, 50)
+
+
+  </script>
 
 </body>
 </html>

@@ -93,17 +93,28 @@ nav{
 }
 
 .second-nav a:hover{
-  color:green;
-  text-decoration: underline;
+  
+  
+  
+}
+
+.second-nav-show{
+  color:green !important;
+  text-decoration: underline !important;
   background:rgb(44,42,41)
 }
 
 .down-nav{
   background:rgb(44,42,41);
   width:100%;
-  transition: all 0.5s;
-  height:0;
+  transition: max-height 0.5s;
+  max-height:0;
   visibility: hidden;
+}
+
+.down-nav-show{
+  max-height:500px;
+  visibility: visible;
 }
 
 .down-nav-inner{
@@ -152,6 +163,14 @@ nav{
   border: 2px solid green;
   padding:5px 15px;
   border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.section-1 .section-1-btn:hover{
+  color:white;
+  background:rgb(19,54,45);
+  text-decoration: underline;
+  cursor:pointer;
 }
 
 .section-1 .product1{
@@ -173,6 +192,52 @@ nav{
   left:78%;
   top:19%;
   width:15vw;
+}
+
+.section-2{
+  display:flex;
+}
+
+.section-2 .back-black{
+  background:black;
+  color:white;
+  display: flex;
+  width:50%;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 25px;
+}
+
+.section-2 .back-black li{
+  list-style-type: none;
+}
+
+.section-2 .back-white{
+  background:white;
+  color:black;
+  display: flex;
+  width:50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-2 .back-black-icon{
+  font-size:larger;
+  border:1px solid white;
+  padding:4px 4px 1px 4px;
+  border-radius: 30px;
+}
+
+.section-2 .back-white-icon{
+  margin-left: 100px;
+  font-size:larger;
+  padding:4px 4px 1px 4px;
+  border:1px solid black;
+  border-radius: 30px;
+}
+
+.display-none{
+  display:none;
 }
 
 .section-4{
@@ -213,4 +278,33 @@ nav{
   background-image: url(./img/section8.png);
   background-position: center;
   background-size:cover;      /* cover */
+}
+
+@media screen and (max-width:768px) {
+  .section-2{
+    display:block;
+  }
+
+  .section-2 .back-black{
+    width:100%;
+  }
+
+  .section-2 .back-white-icon{
+    margin-left: 0;
+
+  }
+
+  .section-2 .back-black h3{
+    display: none;
+  }
+
+  .section-2 .back-white{
+    width:100%;
+    justify-content: space-between;
+    padding:0 25px;
+  }
+
+  .section-2 .back-white p{
+    padding-left:40px;
+  }
 }
